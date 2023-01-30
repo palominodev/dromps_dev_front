@@ -4,21 +4,25 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Dromps Dev | Home">
-	<section>
-		<h1>Dromps Dev</h1>
-		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi reprehenderit officia, aliquam recusandae quae ea inventore nisi vel illo rerum tempore dolorem excepturi nulla facilis pariatur voluptatum tenetur eius nesciunt!</p>
-		<img src="https://pbs.twimg.com/media/E4SSdCNXMAgHtbe.jpg" alt="sapo con sombrero diciendo tuki" title="Sapo diciendo TUKI" width="300">
+	<section class="hero">
+		<div class="hero__descript">
+			<h1 class="hero__title">Dromps Dev</h1>
+			<p class="hero__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi reprehenderit officia, aliquam recusandae quae ea inventore nisi vel illo rerum tempore doloremg excepturi nulla facilis pariatur voluptatum tenetdur eius nesciunt!</p>
+		</div>
+		<figure class="image">
+			<img src="https://pbs.twimg.com/media/E4SSdCNXMAgHtbe.jpg" alt="sapo con sombrero diciendo tuki" title="Sapo diciendo TUKI">
+		</figure>
 	</section>
-	<section>
-		<h2>Proyectos</h2>
-		<div>
+	<section class="proyectos">
+		<h2 class="title--section">Proyectos</h2>
+		<div class="proyectos__content">
 			<CardProyect />
 			<CardProyect />
 			<CardProyect />
 		</div>
 	</section>
 	<section>
-		<h2>Descripcion de los servicios</h2>
+		<h2 class="title--section">Descripcion de los servicios</h2>
 		<article>
 			<h3>Descripción del servicio</h3>
 			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque praesentium nobis distinctio corporis, ipsum deserunt consectetur dicta ex eius assumenda.</p>
@@ -33,7 +37,7 @@ import Layout from '../layouts/Layout.astro';
 		</article>
 	</section>
 	<section>
-		<h2>Precios</h2>
+		<h2 class="title--section">Precios</h2>
 		<div>
 			<h3>Junior</h3>
 			<span>$300</span>
@@ -63,3 +67,43 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 	</section>
 </Layout>
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: repeat(2,1fr);
+		place-content: center;
+	}
+	.hero__descript {
+		height: auto;
+		display:flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.hero__title {
+		font-size: 5rem;
+		font-weight: 900;
+		text-transform: uppercase;
+	}
+	.image {
+		display: flex;
+		align-items:center;
+		justify-content: flex-end;
+	}
+	.image img {
+		width: 90%;
+		height: 80%;
+		object-fit: cover;
+	}
+
+	.title--section {
+		font-size: 4rem;
+		text-transform: uppercase;
+		margin-block-end: 2.4rem;
+	}
+
+	.proyectos__content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
+		gap: 2rem;
+	}
+</style>

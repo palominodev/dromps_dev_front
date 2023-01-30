@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+}
+
+.container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding-inline: 2.4rem;
+}
+
+.button {
+    border:none;
+    background-color: transparent;
+    font-size: 1.6rem;
+    cursor:pointer;
+    padding: 1.2rem 1.6rem;
+    border-radius: .4rem;
+    display: block;
+}
+
+.button--primary {
+    background-color:rgb(79 84 239);
+    color: #fff;
+    font-weight: 600;
+}

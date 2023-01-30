@@ -1,12 +1,36 @@
 ---
-
+import Link from '../components/Link.astro'
+const primary_color = 'rgb(79,84,239)'
 ---
 <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/proyectos">Proyectos</a></li>
-            <li><a href="/sobre-nosotros">Sobre nosotros</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><Link text="Home" url="/" /> </li>
+                <li><Link text="Proyectos" url="/proyectos" /></li>
+                <li><Link text="Sobre nosotros" url="/sobre-nosotros" /></li>
+            </ul>
+        </nav>
+    </div>
 </header>
+
+<style define:vars={{primary_color}}>
+    header {
+        background-color: var(--primary_color);
+    }
+    nav {
+        height: 6rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    ul {
+        display: flex;
+        gap: 1.6rem;
+        height: 100%;
+        align-items: center;
+    }
+    li {
+        list-style: none;
+    }
+</style>

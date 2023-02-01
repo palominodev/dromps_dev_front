@@ -1,21 +1,34 @@
 ---
+interface Props {
+    title: string;
+    tools: string[];
+    link: string;
+    image: {
+        url: string,
+        alt: string
+    }
+}   
 
+const {title,tools,link,image} = Astro.props
 ---
 
 <article class="card_proyect">
-    <img class="card_proyect__image" width="100" src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2021/07/social.jpg?fit=2024%2C1012&ssl=1" alt="">
-    <h3 class="card_proyect__title">Titulo del proyecto</h3>
+    <img 
+        class="card_proyect__image" 
+        width="100" 
+        src={image.url}
+        alt={image.alt}
+        title={image.alt}>
+    <h3 class="card_proyect__title">{title}</h3>
     <div class="card_proyect__details">
         <p class="card_proyect__title-detail">Tecnologias:</p>
         <div class="card_proyect__tools">
-            <span class="card_proyect__tool">Astro</span>
-            <span class="card_proyect__tool">React</span>
-            <span class="card_proyect__tool">React</span>
-            <span class="card_proyect__tool">Javascript</span>
-            <span class="card_proyect__tool">Javascript</span>
+            {
+                tools.map(tool => <span class="card_proyect__tool">{tool}</span>)
+            }
         </div>
     </div>
-    <button class="button button--primary">Ir al proyecto</button>
+    <a href={`https://www.${link}`} class="button button--primary">Ir al proyecto</a>
 </article>
 
 <style>

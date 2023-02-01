@@ -35,6 +35,8 @@ li {
     padding: 1.2rem 1.6rem;
     border-radius: .4rem;
     display: block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .button--primary {

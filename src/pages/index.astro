@@ -1,6 +1,7 @@
 ---
 import CardProyect from '../components/CardProyect.astro';
 import Layout from '../layouts/Layout.astro';
+const proyects = await Astro.glob('../proyects/*.md')
 ---
 
 <Layout title="Dromps Dev | Home">
@@ -16,9 +17,14 @@ import Layout from '../layouts/Layout.astro';
 	<section class="proyectos">
 		<h2 class="title--section">Proyectos</h2>
 		<div class="proyectos__content">
-			<CardProyect />
-			<CardProyect />
-			<CardProyect />
+			{
+				proyects.map(proyect => 
+				<CardProyect 
+					link={proyect.frontmatter.link}
+					title={proyect.frontmatter.title}
+					tools={proyect.frontmatter.tools}
+					image={proyect.frontmatter.image} />)
+			}
 		</div>
 	</section>
 	<section class="servicios">

@@ -38,34 +38,39 @@ import Layout from '../layouts/Layout.astro';
 			</article>
 		</div>
 	</section>
-	<section>
+	<section class="precios">
 		<h2 class="title--section">Precios</h2>
-		<div>
-			<h3>Junior</h3>
-			<span>$300</span>
-			<ul>
-				<li>Lorem</li>
-				<li>lorem</li>
-				<li>lorem</li>
-			</ul>
-		</div>
-		<div>
-			<h3>Junior</h3>
-			<span>$300</span>
-			<ul>
-				<li>Lorem</li>
-				<li>lorem</li>
-				<li>lorem</li>
-			</ul>
-		</div>
-		<div>
-			<h3>Junior</h3>
-			<span>$300</span>
-			<ul>
-				<li>Lorem</li>
-				<li>lorem</li>
-				<li>lorem</li>
-			</ul>
+		<div class="precios__content">
+			<article class="precio">
+				<h3 class="precio__title">Junior</h3>
+				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
+				<ul class="precio__list">
+					<li class="precio__item">Lorem</li>
+					<li class="precio__item">lorem</li>
+					<li class="precio__item">lorem</li>
+				</ul>
+				<button class="button button--primary precio__button">Comprar ya!</button>
+			</article>
+			<article class="precio">
+				<h3 class="precio__title">Junior</h3>
+				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
+				<ul class="precio__list">
+					<li class="precio__item">Lorem</li>
+					<li class="precio__item">lorem</li>
+					<li class="precio__item">lorem</li>
+				</ul>
+				<button class="button button--primary precio__button">Comprar ya!</button>
+			</article>
+			<article class="precio">
+				<h3 class="precio__title">Junior</h3>
+				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
+				<ul class="precio__list">
+					<li class="precio__item">Lorem</li>
+					<li class="precio__item">lorem</li>
+					<li class="precio__item">lorem</li>
+				</ul>
+				<button class="button button--primary precio__button">Comprar ya!</button>
+			</article>
 		</div>
 	</section>
 </Layout>
@@ -128,5 +133,44 @@ import Layout from '../layouts/Layout.astro';
 	.servicio__title {
 		text-transform: uppercase;
 		margin-block-end: .8rem
+	}
+
+	.precios__content {
+		display: grid;
+		grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
+		gap: 1.2rem;
+	}
+	.precio {
+		border: 1px solid #000;
+		padding: 2rem;
+		border-radius: .5rem;
+	}
+	.precio__title {
+		font-size: 2.8rem;
+		font-family: 'Courier New', Courier, monospace;
+		text-align: center;
+		margin-block-end: 2rem;
+	}
+	.precio__count {
+		font-size: 8rem;
+		display: flex;
+		justify-content: center;
+	}
+	.precio__simbol {
+		font-size: 1.8rem;
+		font-weight: bold;
+
+	}
+	.precio__list {
+		padding-inline: 2.4rem;
+	}
+	.precio__item {
+		font-style: italic;
+		list-style: square;
+		margin-block-end: .8rem;
+	}
+	.precio__button {
+		margin-block-start: 1.2rem;
+		margin-inline: auto;
 	}
 </style>

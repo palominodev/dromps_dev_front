@@ -2,6 +2,7 @@
 import CardProyect from '../components/CardProyect.astro';
 import Layout from '../layouts/Layout.astro';
 const proyects = await Astro.glob('../proyects/*.md')
+const servicios = await Astro.glob('../servicios/*.md')
 ---
 
 <Layout title="Dromps Dev | Home">
@@ -30,18 +31,13 @@ const proyects = await Astro.glob('../proyects/*.md')
 	<section class="servicios">
 		<h2 class="title--section">Descripcion de los servicios</h2>
 		<div class="servicios__content">
-			<article class="servicio">
-				<h3 class="servicio__title">Descripción del servicio</h3>
-				<p class="servicio__descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque praesentium nobis distinctio corporis, ipsum deserunt consectetur dicta ex eius assumenda.</p>
-			</article>
-			<article class="servicio">
-				<h3 class="servicio__title">Descripción del servicio</h3>
-				<p class="servicio__descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque praesentium nobis distinctio corporis, ipsum deserunt consectetur dicta ex eius assumenda.</p>
-			</article>
-			<article class="servicio">
-				<h3 class="servicio__title">Descripción del servicio</h3>
-				<p class="servicio__descript">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque praesentium nobis distinctio corporis, ipsum deserunt consectetur dicta ex eius assumenda.</p>
-			</article>
+			{
+				servicios.map(servicio => 
+				<article class="servicio">
+					<h3 class="servicio__title">{servicio.frontmatter.title}</h3>
+					<p class="servicio__descript">{servicio.frontmatter.text}</p>
+				</article>)
+			}
 		</div>
 	</section>
 	<section class="precios">

@@ -3,6 +3,7 @@ import CardProyect from '../components/CardProyect.astro';
 import Layout from '../layouts/Layout.astro';
 const proyects = await Astro.glob('../proyects/*.md')
 const servicios = await Astro.glob('../servicios/*.md')
+const prices = await Astro.glob('../prices/*.md')
 ---
 
 <Layout title="Dromps Dev | Home">
@@ -43,36 +44,22 @@ const servicios = await Astro.glob('../servicios/*.md')
 	<section class="precios">
 		<h2 class="title--section">Precios</h2>
 		<div class="precios__content">
-			<article class="precio">
-				<h3 class="precio__title">Junior</h3>
-				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
-				<ul class="precio__list">
-					<li class="precio__item">Lorem</li>
-					<li class="precio__item">lorem</li>
-					<li class="precio__item">lorem</li>
-				</ul>
-				<button class="button button--primary precio__button">Comprar ya!</button>
-			</article>
-			<article class="precio">
-				<h3 class="precio__title">Junior</h3>
-				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
-				<ul class="precio__list">
-					<li class="precio__item">Lorem</li>
-					<li class="precio__item">lorem</li>
-					<li class="precio__item">lorem</li>
-				</ul>
-				<button class="button button--primary precio__button">Comprar ya!</button>
-			</article>
-			<article class="precio">
-				<h3 class="precio__title">Junior</h3>
-				<p class="precio__count"><span class="precio__simbol">$</span>300</p>
-				<ul class="precio__list">
-					<li class="precio__item">Lorem</li>
-					<li class="precio__item">lorem</li>
-					<li class="precio__item">lorem</li>
-				</ul>
-				<button class="button button--primary precio__button">Comprar ya!</button>
-			</article>
+			{
+				prices.map(price => 
+					<article class="precio">
+						<h3 class="precio__title">{price.frontmatter.title}</h3>
+						<p class="precio__count"><span class="precio__simbol">$</span>{price.frontmatter.price}</p>
+						<ul class="precio__list">
+							{
+								price.frontmatter.benefices.map((benefice:string) => 
+									<li class="precio__item">{benefice}</li>
+								)
+							}
+						</ul>
+						<button class="button button--primary precio__button">Comprar ya!</button>
+					</article>
+				)
+			}
 		</div>
 	</section>
 </Layout>

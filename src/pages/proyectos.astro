@@ -1,7 +1,11 @@
 ---
+import Component from "../components/react/Component";
 import Layout from "../layouts/Layout.astro";
-
+const allProyects = await Astro.glob('../proyects/*.md')
 ---
 <Layout title="Dromps Dev | Proyectos">
     <h1>Hola Proyectos!</h1>
+    <section class="content__proyect">
+        <Component client:load data={allProyects} />
+    </section>
 </Layout>

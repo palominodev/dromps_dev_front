@@ -1,5 +1,6 @@
 ---
-import CardProyect from '../components/CardProyect.astro';
+// import CardProyect from '../components/CardProyect.astro';
+import CardProyect from '../components/react/CardProyect.jsx'
 import Layout from '../layouts/Layout.astro';
 const proyects = await Astro.glob('../proyects/*.md')
 const servicios = await Astro.glob('../servicios/*.md')
@@ -20,8 +21,9 @@ const prices = await Astro.glob('../prices/*.md')
 		<h2 class="title--section">Proyectos</h2>
 		<div class="proyectos__content">
 			{
-				proyects.map(proyect => 
+				proyects.map((proyect,i) => 
 				<CardProyect 
+					key={i}
 					link={proyect.frontmatter.link}
 					title={proyect.frontmatter.title}
 					tools={proyect.frontmatter.tools}

@@ -1,15 +1,20 @@
-const Filter = () => {
+const Filter = ({tags,add}) => {
     return (
         <div className="filter">
             <form action="">
                 <legend>
-                    <label htmlFor="html">HTML</label>
-                    <input type="checkbox" name="HTML" id="html" />
-                    <hr />
-                    <label htmlFor="css">CSS</label><input type="checkbox" name="css" id="css" />
-                    <hr />
-                    <label htmlFor="javascript">Javascript</label><input type="checkbox" name="Javascript" id="javascript" />
-                    <hr />
+                    <div className="tecnologia">
+                        <label htmlFor='all'>all</label>
+                        <input type="radio" onClick={add} value='all' name="language" id='all' />
+                     </div>
+                    {
+                        tags.map(tag => (
+                            <div key={tag} className="tecnologia">
+                                <label htmlFor={tag}>{tag}</label>
+                                <input type="radio" onClick={add} value={tag} name="language" id={tag} />
+                            </div>
+                        ) )
+                    }
                 </legend>
             </form>
         </div>

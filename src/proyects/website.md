@@ -1,6 +1,6 @@
 ---
 title: Dromps Dev Website
-tools: ["astro","React","html","css"]
+tools: ["astro","react","html","css","typescript"]
 link: dromps-dev.netlify.app
 image: 
     url: https://pbs.twimg.com/media/E4SSdCNXMAgHtbe.jpg

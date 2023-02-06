@@ -13,7 +13,7 @@ const CardProyect = (props) => {
                 <p className="card_proyect__title-detail">Tecnologias:</p>
                 <div className="card_proyect__tools">
                     {
-                        props.tools.map(tool => <span className="card_proyect__tool">{tool}</span>)
+                        props.tools.map(tool => <span key={tool} className="card_proyect__tool">{tool}</span>)
                     }
                 </div>
             </div>

@@ -2,10 +2,16 @@
 import Component from "../components/react/Component";
 import Layout from "../layouts/Layout.astro";
 const allProyects = await Astro.glob('../proyects/*.md')
+const allTags = allProyects.flatMap(proyect => {
+    const arrTags = proyect.frontmatter.tools
+    const upperTags = arrTags.map((tag:string) => tag.toLowerCase())
+    return upperTags
+})
+const noRepeatTags = [...new Set(allTags)]
 ---
 <Layout title="Dromps Dev | Proyectos">
     <h1>Hola Proyectos!</h1>
     <section class="content__proyect">
-        <Component client:load data={allProyects} />
+        <Component client:load data={allProyects} tags={noRepeatTags} />
     </section>
 </Layout>

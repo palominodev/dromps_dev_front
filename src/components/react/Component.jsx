@@ -12,7 +12,7 @@ const Component = ({data, tags}) => {
             return
         }
         console.log(tag)
-        const newProyects = proyects.filter( proyect => {
+        const newProyects = proyectsData.filter( proyect => {
             const tags = proyect.tools
             const isInclude = tags.some( a => a===tag)
             return isInclude 
